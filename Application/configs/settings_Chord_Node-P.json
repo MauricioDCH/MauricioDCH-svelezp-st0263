@@ -1,0 +1,98 @@
+[
+    {
+        "NodeID": 0,
+        "URL": "181.136.47.1:50051",
+        "Predecessor": 4,
+        "Successor": 1
+    },
+    {
+        "NodeID": 1,
+        "URL": "181.136.47.2:50051",
+        "Predecessor": 0,
+        "Successor": 2
+    },
+    {
+        "NodeID": 2,
+        "URL": "181.136.47.3:50051",
+        "Predecessor": 1,
+        "Successor": 3
+    },
+    {
+        "NodeID": 3,
+        "URL": "181.136.47.4:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 4,
+        "URL": "181.136.47.5:50051",
+        "Predecessor": 3,
+        "Successor": 0
+    },
+    {
+        "NodeID": 5,
+        "URL": "181.136.47.6:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 6,
+        "URL": "181.136.47.7:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 7,
+        "URL": "181.136.47.8:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 8,
+        "URL": "181.136.47.9:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 9,
+        "URL": "181.136.47.10:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 10,
+        "URL": "181.136.47.11:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 11,
+        "URL": "181.136.47.12:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 12,
+        "URL": "181.136.47.13:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 13,
+        "URL": "181.136.47.14:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 14,
+        "URL": "181.136.47.15:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    },
+    {
+        "NodeID": 15,
+        "URL": "181.136.47.16:50051",
+        "Predecessor": 2,
+        "Successor": 4
+    }
+]
