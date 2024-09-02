@@ -11,15 +11,15 @@
 #
 # 1. Breve descripción de la actividad
 
-Se  busca desarrollar un sistema P2P descentralizado en anillo, en el que los nodos puedan comunicarse entre ellos y con el que se simule la transferencia de archivos entre nodos.
+Se  busca desarrollar un sistema P2P descentralizadoe, estructurada en anillo, en el que los nodos puedan comunicarse entre ellos y con el que se simule la transferencia de archivos entre nodos.
 
 ## 1.1. Que aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
-Creacion de nodos, asignacion de las respectiva finger table de cada nodo, conformacion de un servidos encargado de registrar los nodos del sistema con sus respectivas IDs e IPs. 
+Creacion de nodos, asignacion de las respectiva finger table de cada nodo mientras van entrando los nodos, conformacion de un servidos encargado de registrar los nodos del sistema con sus respectivas IDs e IPs, se realizo esto en local. Servicios dummies de carga y descarga de archivos, petición de la lista de archivos a un nodo identifiaco, manejo de Bootstrap, actualizar la información de los nodos si hay cambio en la información del bootstrap.
 
 
 ## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 
-Despliegue en contenerizacion con docker.
+Despliegue en contenerizacion con docker, despliege en AWS, redirección de peticiones, verificación de los nodos activos.
 
 # 2. Información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
 
@@ -52,49 +52,81 @@ Las librerias usadas son las siguientes:
 - pandas
 
 ## Como se compila y ejecuta.
-Correr en una terminal el codigo del server, el cual actua como un nodo de la red, y en otra terminal correr el codigo de cliente, desde donde se hacen las peticiones al nodo servidor.
+Antes de todo, se debe instalar los requirements.txt. Y ejecutar el entorno virtual que se llama reto1
+
+Se ejecuta en una terminal, se debe llegar hasta el directorio  /src de cada nodo, para el nodo 0, el script de ChordNode.py. Luego para otros nodos, serverMain.py y el nodo que vaya a hacer la petición, es el que ejecuta el archivo client.py, Cada archivo por cada nodo debe ser ejectutada en una terminal.
 
 ## Detalles del desarrollo.
 El sistema se hizo usando gRPC como tecnologia de conexion entre los nodos. Cada nodo tiene la capacidad de actuar como servidor y como cliente dependiendo de la necesidad. Si un nodo actua como servidor de una peticion, pero debe re direccionar la peticion a otro nodo, este nodo seria ahora un cliente.
 ## Detalles técnicos
 
 ## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
-Dentro de la clase serve, se configura el puerto en el que se iniciara el nodo servidos
+Dentro de la clase serve, se configura el puerto 50051 en el que se iniciara el nodo servidores.
+
 ## Opcional - detalles de la organización del código por carpetas o descripción de algún archivo. (ESTRUCTURA DE DIRECTORIOS Y ARCHIVOS IMPORTANTE DEL PROYECTO, comando 'tree' de linux)
 
+Para todos los nodos --> Nodo0, Nodo1, Nodo2, Nodo3, Nodo4, Nodo5
+``` bash
+Nodo0
+├── configs
+│   ├── settings_Chord_Node.json
+│   └── settings.json
+├── requirements.txt
+├── reto1
+│   ├── ...
+├── sources
+│   ├── example.txt
+│   ├── source_n_1_peer0.txt
+│   ├── source_n_2_peer0.txt
+│   └── source_n_3_peer0.txt
+└── src
+    ├── bootstrap.py
+    ├── ChordNode.py
+    ├── client.py
+    ├── FingerTableGenerator.py
+    ├── getData.py
+    ├── __init__.py
+    ├── peerCommunications_pb2_grpc.py
+    ├── peerCommunications_pb2.py
+    ├── peerCommunications_pb2.pyi
+    ├── protos
+    │   └── peerCommunications.proto
+    ├── __pycache__
+    │   ├── bootstrap.cpython-312.pyc
+    │   ├── createSettings.cpython-312.pyc
+    │   ├── FingerTableGenerator.cpython-312.pyc
+    │   ├── getData.cpython-312.pyc
+    │   ├── __init__.cpython-312.pyc
+    │   ├── peerAsServer.cpython-312.pyc
+    │   ├── peerCommunications_pb2.cpython-312.pyc
+    │   ├── peerCommunications_pb2_grpc.cpython-312.pyc
+    │   └── resourcesIndexer.cpython-312.pyc
+    ├── serverAsClient.py
+    ├── serverAsServer.py
+    └── serverMain.py
+
+```
 ## 
 ## Opcionalmente - si quiere mostrar resultados o pantallazos 
-
+![alt text](Application/Images/Ejecución.png)
 
 
 # 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
 
-En la ejecucion, las librerias usadas son las mismas que las mencionadas anteriormente en el desarrollo, debido a que no se logro implementar el despliegue usando docker.
-
-
-
+No se logro el despliegue, pero los recursos necesarios solo seria instalar docker en la maquina linux y descargar la imagen del docker
 # IP o nombres de dominio en nube o en la máquina servidor.
-
+Se había iniciado con algunas máquinas en AWS, pero al no estar instalado en AWS, no se da más información.
 ## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
-En el codigo, donde se habia configurado algunas variables como local host, se remplaza con la ip del nodo al que se quiere conectar.
-
+Se había iniciado con algunas máquinas en AWS, pero al no estar instalado en AWS, no se da más información.
 ## Como se lanza el servidor.
- Cada maquina virtual puede actuar como servidor o cliente, para actuar como servidor debe correrse el archvi de server.py en la maquina que se desee, y asi esta entrara a la red.
-
+Se había iniciado con algunas máquinas en AWS, pero al no estar instalado en AWS, no se da más información.
 ## Una mini guia de como un usuario utilizaría el software o la aplicación
-
-1. Inicializar las maquinas virtuales de aws
-2. Clonar el repositorio en las maquinas virtuales y cambiar las variables necesarias, como direcciones IPs.
-3. Inicializar el nodo 0, el cual tendra la tabla que contendra el ID y la direccion IP de cada nodo
-4. Inicializar el resto de nodos para llenar la tabla del nodo 0.
-5. Hacer las peticiones que se deseen, como descarga o carga de archivos.
+Se había iniciado con algunas máquinas en AWS, pero al no estar instalado en AWS, no se da más información.
 
 ## Opcionalmente - si quiere mostrar resultados o pantallazos 
-
+Se había iniciado con algunas máquinas en AWS, pero al no estar instalado en AWS, no se da más información.
 # 5. Otra información que considere relevante para esta actividad.
 
 # Referencias:
-<debemos siempre reconocer los créditos de partes del código que reutilizaremos, así como referencias a youtube, o referencias bibliográficas utilizadas para desarrollar el proyecto o la actividad>
-## sitio1-url 
-## sitio2-url
-## url de donde tomo info para desarrollar este proyecto
+No se tomaron referencias de repositorios para el trabajo. Se hizo de acuerdo con la información del libro y de la clase.
+Libro: Distributed Systems Maarten van Steen - Andrew S Tanenbaum 4ed
