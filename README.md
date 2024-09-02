@@ -131,5 +131,5 @@ Se había iniciado con algunas máquinas en AWS, pero al no estar instalado en A
 No se tomaron referencias de repositorios para el trabajo. Se hizo de acuerdo con la información del libro y de la clase.
 Libro: Distributed Systems Maarten van Steen - Andrew S Tanenbaum 4ed
 
-#Link del video de sustentacion
+# Link del video de sustentacion
 https://eafit-my.sharepoint.com/:v:/g/personal/mdcorreah_eafit_edu_co/ETsOfvgO1TZHhV3kwL-LzVoBqw25SUYSCeQ_pDjXdNBiPw?e=hjAUzD
