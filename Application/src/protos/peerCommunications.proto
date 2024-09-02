@@ -72,7 +72,7 @@ message FileListRequest {
 }
 
 message FileListResponse {
-    repeated string file_locations = 1;     
+    string file_locations = 1;     
     repeated string file_list = 2;          
 }
 

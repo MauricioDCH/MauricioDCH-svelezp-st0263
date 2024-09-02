@@ -93,9 +93,9 @@ class FileListResponse(_message.Message):
     __slots__ = ("file_locations", "file_list")
     FILE_LOCATIONS_FIELD_NUMBER: _ClassVar[int]
     FILE_LIST_FIELD_NUMBER: _ClassVar[int]
-    file_locations: _containers.RepeatedScalarFieldContainer[str]
+    file_locations: str
     file_list: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, file_locations: _Optional[_Iterable[str]] = ..., file_list: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, file_locations: _Optional[str] = ..., file_list: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class UploadFileRequest(_message.Message):
     __slots__ = ("file_name", "file_location")
