@@ -24,15 +24,13 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18peerCommunications.proto\x12\x12peerCommunications\"6\n\x10\x42ootstrapRequest\x12\x0f\n\x07node_ip\x18\x01 \x01(\t\x12\x11\n\tnode_port\x18\x02 \x01(\x05\"\x8e\x01\n\x11\x42ootstrapResponse\x12\x16\n\x0enode_id_client\x18\x01 \x01(\x05\x12\x15\n\rid_chord_node\x18\x02 \x01(\x05\x12\x1b\n\x13node_id_predeccesor\x18\x03 \x01(\x05\x12\x18\n\x10node_id_succesor\x18\x04 \x01(\x05\x12\x13\n\x0bnode_status\x18\x05 \x01(\x08\"E\n\x0eGetDataRequest\x12\x0f\n\x07node_id\x18\x01 \x01(\x05\x12\x0f\n\x07node_ip\x18\x02 \x01(\t\x12\x11\n\tnode_port\x18\x03 \x01(\x05\"\xed\x01\n\x0fGetDataResponse\x12\x16\n\x0enode_id_client\x18\x01 \x01(\x05\x12\x15\n\rid_chord_node\x18\x02 \x01(\x05\x12\x1a\n\x12node_ip_chord_node\x18\x03 \x01(\t\x12\x1b\n\x13node_id_predeccesor\x18\x04 \x01(\x05\x12\x18\n\x10node_id_succesor\x18\x05 \x01(\x05\x12\x18\n\x10node_ip_succesor\x18\x06 \x01(\t\x12\x1a\n\x12node_port_succesor\x18\x07 \x01(\x05\x12\"\n\x1anumber_of_nodes_in_network\x18\x08 \x01(\x05\"A\n\tFTRequest\x12\"\n\x1anumber_of_nodes_in_network\x18\x01 \x01(\x05\x12\x10\n\x08node_ids\x18\x02 \x03(\x05\"~\n\nFTResponse\x12?\n\tnode_urls\x18\x01 \x03(\x0b\x32,.peerCommunications.FTResponse.NodeUrlsEntry\x1a/\n\rNodeUrlsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xa5\x01\n\x0f\x46ileListRequest\x12\x18\n\x10node_id_required\x18\x01 \x01(\x05\x12\x18\n\x10node_ip_required\x18\x02 \x01(\t\x12\x1a\n\x12node_port_required\x18\x03 \x01(\x05\x12\x14\n\x0cnext_node_id\x18\x04 \x01(\x05\x12\x14\n\x0cnext_node_ip\x18\x05 \x01(\t\x12\x16\n\x0enext_node_port\x18\x06 \x01(\x05\"=\n\x10\x46ileListResponse\x12\x16\n\x0e\x66ile_locations\x18\x01 \x03(\t\x12\x11\n\tfile_list\x18\x02 \x03(\t\"=\n\x11UploadFileRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x15\n\rfile_location\x18\x02 \x01(\t\"$\n\x12UploadFileResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"\x8f\x01\n\x13\x44ownloadFileRequest\x12\x18\n\x10node_id_required\x18\x01 \x01(\x05\x12\x18\n\x10node_ip_required\x18\x02 \x01(\t\x12\x1a\n\x12node_port_required\x18\x03 \x01(\x05\x12\x11\n\tfile_name\x18\x04 \x01(\t\x12\x15\n\rfile_location\x18\x05 \x01(\t\"&\n\x14\x44ownloadFileResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"C\n\x0bPingRequest\x12\x18\n\x10node_ip_required\x18\x01 \x01(\t\x12\x1a\n\x12node_port_required\x18\x02 \x01(\x05\"\x1e\n\x0cPingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x08\x32\x80\x05\n\x10Peer2PeerService\x12^\n\x0fHandleBootstrap\x12$.peerCommunications.BootstrapRequest\x1a%.peerCommunications.BootstrapResponse\x12R\n\x07GetData\x12\".peerCommunications.GetDataRequest\x1a#.peerCommunications.GetDataResponse\x12Q\n\x10QueryFingerTable\x12\x1d.peerCommunications.FTRequest\x1a\x1e.peerCommunications.FTResponse\x12Z\n\rQueryFileList\x12#.peerCommunications.FileListRequest\x1a$.peerCommunications.FileListResponse\x12[\n\nUploadFile\x12%.peerCommunications.UploadFileRequest\x1a&.peerCommunications.UploadFileResponse\x12\x61\n\x0c\x44ownloadFile\x12\'.peerCommunications.DownloadFileRequest\x1a(.peerCommunications.DownloadFileResponse\x12I\n\x04Ping\x12\x1f.peerCommunications.PingRequest\x1a .peerCommunications.PingResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18peerCommunications.proto\x12\x12peerCommunications\"6\n\x10\x42ootstrapRequest\x12\x0f\n\x07node_ip\x18\x01 \x01(\t\x12\x11\n\tnode_port\x18\x02 \x01(\x05\"\x8e\x01\n\x11\x42ootstrapResponse\x12\x16\n\x0enode_id_client\x18\x01 \x01(\x05\x12\x15\n\rid_chord_node\x18\x02 \x01(\x05\x12\x1b\n\x13node_id_predeccesor\x18\x03 \x01(\x05\x12\x18\n\x10node_id_succesor\x18\x04 \x01(\x05\x12\x13\n\x0bnode_status\x18\x05 \x01(\x08\"E\n\x0eGetDataRequest\x12\x0f\n\x07node_id\x18\x01 \x01(\x05\x12\x0f\n\x07node_ip\x18\x02 \x01(\t\x12\x11\n\tnode_port\x18\x03 \x01(\x05\"\xed\x01\n\x0fGetDataResponse\x12\x16\n\x0enode_id_client\x18\x01 \x01(\x05\x12\x15\n\rid_chord_node\x18\x02 \x01(\x05\x12\x1a\n\x12node_ip_chord_node\x18\x03 \x01(\t\x12\x1b\n\x13node_id_predeccesor\x18\x04 \x01(\x05\x12\x18\n\x10node_id_succesor\x18\x05 \x01(\x05\x12\x18\n\x10node_ip_succesor\x18\x06 \x01(\t\x12\x1a\n\x12node_port_succesor\x18\x07 \x01(\x05\x12\"\n\x1anumber_of_nodes_in_network\x18\x08 \x01(\x05\"A\n\tFTRequest\x12\"\n\x1anumber_of_nodes_in_network\x18\x01 \x01(\x05\x12\x10\n\x08node_ids\x18\x02 \x03(\x05\"1\n\nFTResponse\x12\x10\n\x08node_ids\x18\x01 \x03(\x05\x12\x11\n\tnode_urls\x18\x02 \x03(\t\"\xa5\x01\n\x0f\x46ileListRequest\x12\x18\n\x10node_id_required\x18\x01 \x01(\x05\x12\x18\n\x10node_ip_required\x18\x02 \x01(\t\x12\x1a\n\x12node_port_required\x18\x03 \x01(\x05\x12\x14\n\x0cnext_node_id\x18\x04 \x01(\x05\x12\x14\n\x0cnext_node_ip\x18\x05 \x01(\t\x12\x16\n\x0enext_node_port\x18\x06 \x01(\x05\"=\n\x10\x46ileListResponse\x12\x16\n\x0e\x66ile_locations\x18\x01 \x03(\t\x12\x11\n\tfile_list\x18\x02 \x03(\t\"=\n\x11UploadFileRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x15\n\rfile_location\x18\x02 \x01(\t\"$\n\x12UploadFileResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"\x8f\x01\n\x13\x44ownloadFileRequest\x12\x18\n\x10node_id_required\x18\x01 \x01(\x05\x12\x18\n\x10node_ip_required\x18\x02 \x01(\t\x12\x1a\n\x12node_port_required\x18\x03 \x01(\x05\x12\x11\n\tfile_name\x18\x04 \x01(\t\x12\x15\n\rfile_location\x18\x05 \x01(\t\"&\n\x14\x44ownloadFileResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"C\n\x0bPingRequest\x12\x18\n\x10node_ip_required\x18\x01 \x01(\t\x12\x1a\n\x12node_port_required\x18\x02 \x01(\x05\"\x1e\n\x0cPingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x08\x32\x80\x05\n\x10Peer2PeerService\x12^\n\x0fHandleBootstrap\x12$.peerCommunications.BootstrapRequest\x1a%.peerCommunications.BootstrapResponse\x12R\n\x07GetData\x12\".peerCommunications.GetDataRequest\x1a#.peerCommunications.GetDataResponse\x12Q\n\x10QueryFingerTable\x12\x1d.peerCommunications.FTRequest\x1a\x1e.peerCommunications.FTResponse\x12Z\n\rQueryFileList\x12#.peerCommunications.FileListRequest\x1a$.peerCommunications.FileListResponse\x12[\n\nUploadFile\x12%.peerCommunications.UploadFileRequest\x1a&.peerCommunications.UploadFileResponse\x12\x61\n\x0c\x44ownloadFile\x12\'.peerCommunications.DownloadFileRequest\x1a(.peerCommunications.DownloadFileResponse\x12I\n\x04Ping\x12\x1f.peerCommunications.PingRequest\x1a .peerCommunications.PingResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'peerCommunications_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_FTRESPONSE_NODEURLSENTRY']._loaded_options = None
-  _globals['_FTRESPONSE_NODEURLSENTRY']._serialized_options = b'8\001'
   _globals['_BOOTSTRAPREQUEST']._serialized_start=48
   _globals['_BOOTSTRAPREQUEST']._serialized_end=102
   _globals['_BOOTSTRAPRESPONSE']._serialized_start=105
@@ -44,25 +42,23 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_FTREQUEST']._serialized_start=560
   _globals['_FTREQUEST']._serialized_end=625
   _globals['_FTRESPONSE']._serialized_start=627
-  _globals['_FTRESPONSE']._serialized_end=753
-  _globals['_FTRESPONSE_NODEURLSENTRY']._serialized_start=706
-  _globals['_FTRESPONSE_NODEURLSENTRY']._serialized_end=753
-  _globals['_FILELISTREQUEST']._serialized_start=756
-  _globals['_FILELISTREQUEST']._serialized_end=921
-  _globals['_FILELISTRESPONSE']._serialized_start=923
-  _globals['_FILELISTRESPONSE']._serialized_end=984
-  _globals['_UPLOADFILEREQUEST']._serialized_start=986
-  _globals['_UPLOADFILEREQUEST']._serialized_end=1047
-  _globals['_UPLOADFILERESPONSE']._serialized_start=1049
-  _globals['_UPLOADFILERESPONSE']._serialized_end=1085
-  _globals['_DOWNLOADFILEREQUEST']._serialized_start=1088
-  _globals['_DOWNLOADFILEREQUEST']._serialized_end=1231
-  _globals['_DOWNLOADFILERESPONSE']._serialized_start=1233
-  _globals['_DOWNLOADFILERESPONSE']._serialized_end=1271
-  _globals['_PINGREQUEST']._serialized_start=1273
-  _globals['_PINGREQUEST']._serialized_end=1340
-  _globals['_PINGRESPONSE']._serialized_start=1342
-  _globals['_PINGRESPONSE']._serialized_end=1372
-  _globals['_PEER2PEERSERVICE']._serialized_start=1375
-  _globals['_PEER2PEERSERVICE']._serialized_end=2015
+  _globals['_FTRESPONSE']._serialized_end=676
+  _globals['_FILELISTREQUEST']._serialized_start=679
+  _globals['_FILELISTREQUEST']._serialized_end=844
+  _globals['_FILELISTRESPONSE']._serialized_start=846
+  _globals['_FILELISTRESPONSE']._serialized_end=907
+  _globals['_UPLOADFILEREQUEST']._serialized_start=909
+  _globals['_UPLOADFILEREQUEST']._serialized_end=970
+  _globals['_UPLOADFILERESPONSE']._serialized_start=972
+  _globals['_UPLOADFILERESPONSE']._serialized_end=1008
+  _globals['_DOWNLOADFILEREQUEST']._serialized_start=1011
+  _globals['_DOWNLOADFILEREQUEST']._serialized_end=1154
+  _globals['_DOWNLOADFILERESPONSE']._serialized_start=1156
+  _globals['_DOWNLOADFILERESPONSE']._serialized_end=1194
+  _globals['_PINGREQUEST']._serialized_start=1196
+  _globals['_PINGREQUEST']._serialized_end=1263
+  _globals['_PINGRESPONSE']._serialized_start=1265
+  _globals['_PINGRESPONSE']._serialized_end=1295
+  _globals['_PEER2PEERSERVICE']._serialized_start=1298
+  _globals['_PEER2PEERSERVICE']._serialized_end=1938
 # @@protoc_insertion_point(module_scope)

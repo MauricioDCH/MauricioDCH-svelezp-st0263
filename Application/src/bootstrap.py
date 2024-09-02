@@ -19,7 +19,7 @@ class Bootstrap:
             return "IP no disponible"
     
     def handle_bootstrap(self):
-        port = 50052
+        port = 50051
         chord_address_node = 'localhost:50051'
         with grpc.insecure_channel(chord_address_node) as channel:
             stub = peerCommunications_pb2_grpc.Peer2PeerServiceStub(channel)

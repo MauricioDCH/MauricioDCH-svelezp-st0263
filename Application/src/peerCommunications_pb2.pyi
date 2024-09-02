@@ -1,7 +1,7 @@
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -66,17 +66,12 @@ class FTRequest(_message.Message):
     def __init__(self, number_of_nodes_in_network: _Optional[int] = ..., node_ids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class FTResponse(_message.Message):
-    __slots__ = ("node_urls",)
-    class NodeUrlsEntry(_message.Message):
-        __slots__ = ("key", "value")
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: int
-        value: str
-        def __init__(self, key: _Optional[int] = ..., value: _Optional[str] = ...) -> None: ...
+    __slots__ = ("node_ids", "node_urls")
+    NODE_IDS_FIELD_NUMBER: _ClassVar[int]
     NODE_URLS_FIELD_NUMBER: _ClassVar[int]
-    node_urls: _containers.ScalarMap[int, str]
-    def __init__(self, node_urls: _Optional[_Mapping[int, str]] = ...) -> None: ...
+    node_ids: _containers.RepeatedScalarFieldContainer[int]
+    node_urls: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, node_ids: _Optional[_Iterable[int]] = ..., node_urls: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class FileListRequest(_message.Message):
     __slots__ = ("node_id_required", "node_ip_required", "node_port_required", "next_node_id", "next_node_ip", "next_node_port")

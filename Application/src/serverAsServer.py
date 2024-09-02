@@ -1,3 +1,4 @@
+"""
 from concurrent import futures
 import grpc
 import peerCommunications_pb2
@@ -7,8 +8,8 @@ from bootstrap import Bootstrap
 from getData import GetData
 from createSettings import CreateSettings
 from FingerTableGenerator import QueryFingerTable
-import os
-import time
+
+
 
 
 class Peer2PeerServicer(peerCommunications_pb2_grpc.Peer2PeerServiceServicer):
@@ -19,10 +20,6 @@ class Peer2PeerServicer(peerCommunications_pb2_grpc.Peer2PeerServiceServicer):
         self.ip_global = bootstrap.obtener_ip_global()  # Obtener IP global al inicializar la clase
         self.chord_address = 'localhost:50051'
         self.node_id = None  # Inicializa en None, se asignará después con HandleBootstrap
-
-
-
-
 
 def serve():
     print('INICIANDO SERVIDOR...')
@@ -46,11 +43,51 @@ def serve():
     print("\nGET DATA")
     getData = GetData()
     getDataResponse = getData.get_data(bootResponse.node_id_client)
+    print(getDataResponse)
     
     time.sleep(1)
     print("\nFINGER TABLE")
-    finger_table = QueryFingerTable(getDataResponse.number_of_nodes_in_network)
-    finger_table.request_finger_table()
+    #finger_table = QueryFingerTable(getDataResponse.number_of_nodes_in_network)
+    #finger_table = QueryFingerTable(n_nodos)
+    #finger_table.request_finger_table()
 
 if __name__ == '__main__':
     serve()
+
+"""
+
+import grpc
+import peerCommunications_pb2
+import peerCommunications_pb2_grpc
+import time
+from bootstrap import Bootstrap
+from getData import GetData
+from FingerTableGenerator import QueryFingerTable
+
+def run_client():
+    print('INICIANDO CLIENTE...')
+    
+    # BOOTSTRAP
+    print("BOOTSTRAP")
+    bootstrap = Bootstrap()
+    bootResponse = bootstrap.handle_bootstrap()
+    print(f"ID del nodo asignado: {bootResponse.node_id_client}")
+    
+    time.sleep(1)
+    
+    # GET DATA
+    print("\nGET DATA")
+    getData = GetData()
+    getDataResponse = getData.get_data(bootResponse.node_id_client)
+    print(getDataResponse)
+    
+    time.sleep(1)
+    
+    # FINGER TABLE
+    print("\nFINGER TABLE")
+    finger_table = QueryFingerTable(getDataResponse.number_of_nodes_in_network)
+    #finger_table = QueryFingerTable(2)
+    finger_table.request_finger_table()
+
+if __name__ == '__main__':
+    run_client()

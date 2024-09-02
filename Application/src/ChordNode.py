@@ -139,43 +139,48 @@ class Peer2PeerServicer(peerCommunications_pb2_grpc.Peer2PeerServiceServicer):
         
         return response
 
+
+
     def QueryFingerTable(self, request, context):
-        print("QueryFingerTable request received from node", request.node_id)
+        print("QueryFingerTable request received")
         # Cargar nodos desde el archivo JSON
         nodes = self.load_nodes()
 
-        # Crear un mapa de node_id a URL
-        node_urls = {}
-        for node_id in request.node_ids:
-            node_data = next((node for node in nodes if node['NodeID'] == node_id), None)
+        # Crear listas para node_ids y node_urls
+        node_ids = []
+        node_urls = []
+
+        for node_id_xd in request.node_ids:
+            node_data = next((node for node in nodes if node['NodeID'] == node_id_xd), None)
             if node_data:
-                node_urls[node_id] = node_data['URL']
+                node_ids.append(node_data['NodeID'])
+                node_urls.append(node_data['URL'])
             else:
-                print(f"Warning: node_id {node_id} not found in nodes list.")
-                node_urls[node_id] = ''  # Asignar cadena vacía si no se encuentra el nodo
+                print(f"Warning: node_id_xd {node_id_xd} not found in nodes list.")
+                context.set_code(grpc.StatusCode.NOT_FOUND)
+                context.set_details(f"node_id_xd {node_id_xd} not found")
+                # Enviar respuesta con listas vacías en caso de error
+                return peerCommunications_pb2.FTResponse(node_ids=[], node_urls=[])
 
         # Construir la respuesta
         response = peerCommunications_pb2.FTResponse(
+            node_ids=node_ids,
             node_urls=node_urls
         )
         return response
 
 
-
-
-
-
-
 # Función principal para iniciar el servidor gRPC
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=1000))
-    #peer2peer_servicer = Peer2PeerServicer()
-    #peerCommunications_pb2_grpc.add_Peer2PeerServiceServicer_to_server(peer2peer_servicer, server)
-    peerCommunications_pb2_grpc.add_Peer2PeerServiceServicer_to_server(Peer2PeerServicer(), server)
+    peer2peer_servicer = Peer2PeerServicer()
+    peerCommunications_pb2_grpc.add_Peer2PeerServiceServicer_to_server(peer2peer_servicer, server)
+    #peerCommunications_pb2_grpc.add_Peer2PeerServiceServicer_to_server(Peer2PeerServicer(), server)
 
-    server.add_insecure_port('0.0.0.0:50051')
+    server.add_insecure_port('[::]:50051')
     server.start()
-    print(f"Servidor gRPC corriendo en {Peer2PeerServicer().node_ip}:50051")
+    #print(f"Servidor gRPC corriendo en {Peer2PeerServicer().node_ip}:50051")
+    print(f"Servidor gRPC corriendo en {peer2peer_servicer.node_ip}:50051")
     server.wait_for_termination()
 
 if __name__ == '__main__':

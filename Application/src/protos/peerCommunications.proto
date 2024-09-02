@@ -55,7 +55,9 @@ message FTRequest {
 }
 
 message FTResponse {
-    map<int32, string> node_urls = 1;  // Mapa de node_id a URL (ip:port)
+    //map<int32, string> node_urls = 1;  // Mapa de node_id a URL (ip:port)
+    repeated int32 node_ids = 1;
+    repeated string node_urls = 2;
 }
 
 
