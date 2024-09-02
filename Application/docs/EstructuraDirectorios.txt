@@ -12,8 +12,6 @@ Generación archivos Python generados por el archivo proto. |
 Para crear los archivos de python generados por el archivo proto desde el directorio: /Reto01-Mauricio-Salomon-LOCAL/Application/src
 Comando: python -m grpc_tools.protoc -I./protos --python_out=. --pyi_out=. --grpc_python_out=. ./protos/peerCommunications.proto
 
-python -m grpc_tools.protoc -I./protos --python_out=. --pyi_out=. --grpc_python_out=. ./protos/gnutella.proto
-
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Instalar requirements. |
 -----------------------|
